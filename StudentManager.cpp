@@ -21,7 +21,7 @@ void StudentManager::addStudent(){
     double gpa;
 
     // Set info about the student (id, name, age, major, gpa) from user input
-    std::cout << "Enter student id: " << std::endl;
+    std::cout << "\nEnter student id: " << std::endl;
     std::cin >> id;
     std::cin.ignore(); // Ignore leftover newline
     newStudent.setId(id);
@@ -46,14 +46,16 @@ void StudentManager::addStudent(){
 
     students.push_back(newStudent); // Add to the collection
 
+    std::cout << "\nStudent added successfully!" << std::endl;
+
 };
 
 void StudentManager::displayAllStudents() {
 
-    std::cout << "Information about all students: " << std::endl;
+    std::cout << "\nInformation about all students: " << std::endl;
 
     for (Student student: students) {
-        std::cout << "Id: " << student.getId() << "\n" 
+        std::cout << "\nId: " << student.getId() << "\n" 
                   << "Name: " << student.getName() << "\n"
                   << "Age: " << student.getAge() << "\n"
                   << "Major: " << student.getMajor() << "\n"
