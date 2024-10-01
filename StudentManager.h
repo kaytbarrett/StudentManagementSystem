@@ -15,7 +15,6 @@ class StudentManager {
 private:
     std::vector<Student> students;
 
-
 public:
     void addStudent();
     void editStudent();

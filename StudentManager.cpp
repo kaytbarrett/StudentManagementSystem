@@ -50,6 +50,79 @@ void StudentManager::addStudent(){
 
 };
 
+void StudentManager::editStudent(){
+
+    int id;
+
+    std::cout << "Please enter the id of the studen you wish to edit: " << std::endl;
+    std::cin >> id;
+
+    bool isVerified = false;
+
+    for (auto it = students.begin(); it != students.end(); it++){
+        if (it->getId() == id){
+            isVerified = true;
+
+            int choice;
+
+            do {
+                std::cout << "\n1. Edit Name\n"
+                            << "2. Edit Age\n"
+                            << "3. Edit Major\n"
+                            << "4. Edit GPA\n"
+                            << "5. Exit\n\n"
+                            << "Choose an option: ";
+                std::cin >> choice;
+                std::cin.ignore();
+
+                switch (choice) {
+                    case 1:{
+                        std::string newName;
+                        std::cout << "\nEnter new student name: (currently: " << it->getName() << "): " << std::endl;
+                        std::getline(std::cin, newName);
+                        it->setName(newName);
+                        break;
+                    }
+                    case 2:{
+                        int newAge;
+                        std::cout << "\nEnter new student age: (currently: " << it->getAge() << "): " << std::endl;
+                        std::cin >> newAge;
+                        std::cin.ignore();
+                        it->setAge(newAge);
+                        break;
+                    }
+                    case 3:{
+                        std::string newMajor;
+                        std::cout << "\nEnter new student major (currently: " << it->getMajor() << "): " << std::endl;
+                        std::getline(std::cin, newMajor);
+                        it->setMajor(newMajor);
+                        break;
+                    }
+                    case 4:{
+                        int newGpa;
+                        std::cout << "\nEnter new student GPA: (currently: " << it->getGpa() << "): " << std::endl;
+                        std::cin >> newGpa;
+                        std::cin.ignore();
+                        it->setAge(newGpa);
+                        break;
+                    }
+                    case 5:
+                        std::cout << "Exiting..." << std::endl;
+                        break;
+                    default:
+                        std::cout << "\nInvalid choice. Please try again." << std::endl;
+                }
+
+            } while (choice != 5);
+        }
+    }
+
+    if (!isVerified){
+        std::cout << "\nStudent with id " << id << " could not be verified\n" << std::endl;
+    } 
+
+};
+
 void StudentManager::displayAllStudents() {
 
     std::cout << "\nInformation about all students: " << std::endl;
@@ -80,9 +153,9 @@ void StudentManager::deleteStudent() {
         }
     
     if (!isVerified){
-        std::cout << "\nStudent id could not be verified\n" << std::endl;
+        std::cout << "\nStudent with id " << id << " could not be verified\n" << std::endl;
     } else {
-        std::cout << "\nStudent with id: " << id << " was removed." << std::endl;
+        std::cout << "\nStudent with id " << id << " was removed." << std::endl;
     }
 
 };

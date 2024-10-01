@@ -30,7 +30,7 @@ int main () {
                 manager.addStudent();
                 break;
             case 2:
-                std::cout << "\nThis is not configured yet. Please choose another option from the menu." << std::endl;
+                manager.editStudent();
                 break;
             case 3:
                 manager.deleteStudent();

@@ -27,15 +27,12 @@ public:
     void setMajor(std::string& major);
     void setGpa(double gpa);
     
-    // Getter method for student info
+    // Getter methods for student info
     int getId() const;
     std::string getName() const;
     int getAge() const;
     std::string getMajor() const;
     double getGpa() const;
-
-    void addStudent(int id, const std::string& name, int age, std::string major, double gpa);
-    void editStudent();
 
 };
 
