@@ -63,3 +63,26 @@ void StudentManager::displayAllStudents() {
                   << std::endl;
     }   
 };
+
+void StudentManager::deleteStudent() {
+
+    int id;
+
+    std::cout << "Please enter the Id of the student you would like to delete: " << std::endl;
+    std::cin >> id; 
+
+    bool isVerified = false;
+
+    for (auto it = students.begin(); it != students.end(); it++)
+        if (it->getId() == id ){
+            students.erase(it);
+            isVerified = true;
+        }
+    
+    if (!isVerified){
+        std::cout << "\nStudent id could not be verified\n" << std::endl;
+    } else {
+        std::cout << "\nStudent with id: " << id << " was removed." << std::endl;
+    }
+
+};

@@ -33,7 +33,7 @@ int main () {
                 std::cout << "\nThis is not configured yet. Please choose another option from the menu." << std::endl;
                 break;
             case 3:
-                std::cout << "\nThis is not configured yet. Please choose another option from the menu." << std::endl;
+                manager.deleteStudent();
                 break;
             case 4:
                 manager.displayAllStudents();

@@ -36,8 +36,6 @@ public:
 
     void addStudent(int id, const std::string& name, int age, std::string major, double gpa);
     void editStudent();
-    void displayStudent();
-    void deleteStudent();
 
 };
 

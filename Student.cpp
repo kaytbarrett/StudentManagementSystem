@@ -57,11 +57,3 @@ void Student::addStudent(int id, const std::string& name, int age, std::string m
 void Student::editStudent(){
 
 };
-
-void Student::displayStudent(){
-
-};
-
-void Student::deleteStudent(){
-
-};
