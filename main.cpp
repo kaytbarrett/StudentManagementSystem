@@ -42,7 +42,7 @@ int main () {
                 std::cout << "\nThis is not configured yet. Please choose another option from the menu." << std::endl;
                 break;
             case 6:
-                std::cout << "\nThis is not configured yet. Please choose another option from the menu." << std::endl;
+                manager.loadData();
                 break;
             case 7:
                 std::cout << "Exiting..." << std::endl;

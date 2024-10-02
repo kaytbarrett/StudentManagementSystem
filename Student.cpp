@@ -45,3 +45,11 @@ std::string Student::getMajor() const {
 double Student::getGpa() const {
     return gpa;
 };
+
+void Student::addStudent(int id, const std::string& name, int age, std::string major, double gpa){
+    this->id = id;
+    this->name = name;
+    this->age = age;
+    this->major = major;
+    this->gpa = gpa;
+};

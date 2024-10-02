@@ -34,6 +34,8 @@ public:
     std::string getMajor() const;
     double getGpa() const;
 
+    void addStudent(int id, const std::string& name, int age, std::string major, double gpa);
+
 };
 
 #endif // STUDENT_H // End of include guard

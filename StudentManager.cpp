@@ -7,6 +7,8 @@
 #include "StudentManager.h"
 #include "Student.h"
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 void StudentManager::addStudent(){
 
@@ -54,7 +56,7 @@ void StudentManager::editStudent(){
 
     int id;
 
-    std::cout << "Please enter the id of the studen you wish to edit: " << std::endl;
+    std::cout << "Please enter the id of the student you wish to edit: " << std::endl;
     std::cin >> id;
 
     bool isVerified = false;
@@ -125,6 +127,8 @@ void StudentManager::editStudent(){
 
 void StudentManager::displayAllStudents() {
 
+    std::cout << "\n=============================================" << std::endl;
+
     std::cout << "\nInformation about all students: " << std::endl;
 
     for (Student student: students) {
@@ -135,9 +139,12 @@ void StudentManager::displayAllStudents() {
                   << "GPA: " << student.getGpa() << "\n"
                   << std::endl;
     }   
+
+    std::cout << "=============================================" << std::endl;
+
 };
 
-void StudentManager::deleteStudent() {
+void StudentManager::deleteStudent(){
 
     int id;
 
@@ -158,4 +165,55 @@ void StudentManager::deleteStudent() {
         std::cout << "\nStudent with id " << id << " was removed." << std::endl;
     }
 
+};
+
+void StudentManager::loadData(){
+
+    std::string file;
+
+    std::cout << "Please enter the CSV file name that you would like to load the data of (ex: data.csv): " << std::endl;
+    std::cin >> file;
+
+    std::ifstream inputFile(file);   
+
+    // Handle error if no file 
+    if(!inputFile){
+        std::cerr << "Error opening file: " << file << std::endl;
+        return; 
+    }
+
+    std::string line;
+    while(std::getline(inputFile, line)){
+
+        std::stringstream ss(line);
+        std::string token;
+
+        // Vector to store all values in the CSV line
+        std::vector<std::string> tokens;
+
+        // Extract tokens separated by commas and store them in the vector
+        while(std::getline(ss, token, ',')){
+            tokens.push_back(token);
+        }
+
+        // Make sure the correct number of tokens are present
+        if (tokens.size() == 5) {
+            int id = std::stoi(tokens[0]);
+            std::string name = tokens[1];
+            int age = std::stoi(tokens[2]);
+            std::string major = tokens[3];
+            double gpa = std::stod(tokens[4]);
+
+            // Create a new Student and set its data using addStudent
+            Student newStudent;
+            newStudent.addStudent(id, name, age, major, gpa);
+
+            // Add the new student to the collection
+            students.push_back(newStudent);
+        } else {
+            std::cout << "Invalid data format in line: " << line << std::endl;
+        }
+    } 
+
+    std::cout << "\nData loaded successfully!\n" << std::endl;
 };

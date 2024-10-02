@@ -20,6 +20,7 @@ public:
     void editStudent();
     void displayAllStudents();
     void deleteStudent();
+    void loadData();
     
 };
 
