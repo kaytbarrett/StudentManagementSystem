@@ -215,5 +215,24 @@ void StudentManager::loadData(){
         }
     } 
 
+    inputFile.close();
     std::cout << "\nData loaded successfully!\n" << std::endl;
+};
+
+
+void StudentManager::saveData(){
+
+    std::ofstream outputFile("data_output.csv");
+    
+    if (!outputFile) {
+        std::cerr << "Error opening output file!" << std::endl;
+        return;
+    }
+
+    for (Student student: students){
+        outputFile << student.toString() << '\n';
+    }
+
+    std::cout << "Data saved to data_output.csv" << std::endl;
+
 };

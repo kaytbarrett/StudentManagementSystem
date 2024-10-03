@@ -35,6 +35,7 @@ public:
     double getGpa() const;
 
     void addStudent(int id, const std::string& name, int age, std::string major, double gpa);
+    std::string toString();
 
 };
 

@@ -53,3 +53,7 @@ void Student::addStudent(int id, const std::string& name, int age, std::string m
     this->major = major;
     this->gpa = gpa;
 };
+
+std::string Student::toString(){
+    return std::to_string(id) + "," + name + "," + std::to_string(age) + "," + major + "," + std::to_string(gpa);
+}

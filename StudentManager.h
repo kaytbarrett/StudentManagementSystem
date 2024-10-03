@@ -21,6 +21,7 @@ public:
     void displayAllStudents();
     void deleteStudent();
     void loadData();
+    void saveData();
     
 };
 

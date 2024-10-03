@@ -19,7 +19,7 @@ int main () {
                   << "2. Edit Student\n"
                   << "3. Delete Student\n"
                   << "4. Display All Students\n"
-                  << "5. Save Data\n"
+                  << "5. Save Data to File\n"
                   << "6. Load Data\n"
                   << "7. Exit\n\n"
                   << "Choose an option: ";
@@ -39,7 +39,7 @@ int main () {
                 manager.displayAllStudents();
                 break;
             case 5: 
-                std::cout << "\nThis is not configured yet. Please choose another option from the menu." << std::endl;
+                manager.saveData();
                 break;
             case 6:
                 manager.loadData();
